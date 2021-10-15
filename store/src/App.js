@@ -4,7 +4,6 @@ import Nav from 'react-bootstrap/Nav'
 import Login from './containers/Login'
 import Container from 'react-bootstrap/Container'
 import Products from './containers/Products'
-import searchProductsForm from './components/searchProductsForm';
 import Cart from './containers/Cart'
 import { Route, Switch } from 'react-router-dom';
 import {useState, useEffect} from 'react'
@@ -27,10 +26,12 @@ function App() {
 
   return (
     <main>
-      <Navbar bg='dark' variant='dark'>
-        <Navbar.Brand className="mx-2">Nathan's Online Shop</Navbar.Brand>
-        <SearchProductsForm query={query} setQuery={setQuery}/>
-        <Nav>
+      <Navbar bg='dark' variant='dark' className="p-2 pb-2">
+        <Navbar.Brand className="mx-3">Nathan's Online Shop</Navbar.Brand>
+        <Container fluid>
+          <SearchProductsForm query={query} setQuery={setQuery}/>
+        </Container>
+        <Nav className="mx-3">
           <Nav.Link>Products</Nav.Link>
           <Nav.Link>Cart</Nav.Link>
         </Nav>

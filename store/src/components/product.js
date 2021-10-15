@@ -3,7 +3,7 @@ import Card from 'react-bootstrap/Card'
 export default function product({product}){
     console.log(product)
     return(
-        <Col xs={12} sm={4} md={3}>
+        <Col xs={12} sm={6} md={4} lg={3}>
             <Card className="h-100 d-flex align-items-center pt-3">
                 <Card.Img variant="top" src={product.image} style={{height:'150px',width:'120px'}}/>
                 <Card.Body>

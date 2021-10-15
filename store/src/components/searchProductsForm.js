@@ -4,9 +4,9 @@ import Row from 'react-bootstrap/Row'
 import Col from 'react-bootstrap/Col'
 export default function SearchProductsForm({query,setQuery}){
     return(
-        <Form>
-            <Row>
-                <Col>
+        <Form style={{width:"100%"}}>
+            <Form.Group as={Row} className="g-0">
+                <Col xs={9} sm={10} md={11}>
                     <Form.Control 
                         type='text' 
                         placeholder="Search Products By Title" 
@@ -15,10 +15,12 @@ export default function SearchProductsForm({query,setQuery}){
                     >
                     </Form.Control>
                 </Col>
-                <Col> 
+
+                <Col xs={3} xs={2} md={1}>
                     <Button className="w-100" type="submit">Search</Button>
                 </Col>
-            </Row>
+
+            </Form.Group>
         </Form>
     )
 }
