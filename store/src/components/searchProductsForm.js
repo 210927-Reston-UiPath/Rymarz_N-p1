@@ -3,10 +3,13 @@ import Button from 'react-bootstrap/Button'
 import Row from 'react-bootstrap/Row'
 import Col from 'react-bootstrap/Col'
 export default function SearchProductsForm({query,setQuery}){
+    const searchProduct = (e)=>{
+        window.location.href = "http://localhost:3000/products"
+    }
     return(
-        <Form style={{width:"100%"}}>
+        <Form className='my-1' style={{width:"100%"}} onSubmit={searchProduct}>
             <Form.Group as={Row} className="g-0">
-                <Col xs={9} sm={10} md={11}>
+                <Col>
                     <Form.Control 
                         type='text' 
                         placeholder="Search Products By Title" 
@@ -16,8 +19,8 @@ export default function SearchProductsForm({query,setQuery}){
                     </Form.Control>
                 </Col>
 
-                <Col xs={3} xs={2} md={1}>
-                    <Button className="w-100" type="submit">Search</Button>
+                <Col style={{maxWidth:'100px'}}>
+                    <Button className="w-100" onClick={searchProduct}>Search</Button>
                 </Col>
 
             </Form.Group>
