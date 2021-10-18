@@ -8,6 +8,7 @@ import Cart from './containers/Cart'
 import { Route, Switch,Redirect } from 'react-router-dom';
 import {useState, useEffect} from 'react'
 import SearchProductsForm from './components/searchProductsForm';
+import Checkout from './containers/Checkout'
 
 function App() {
   const [products,setProducts] = useState([])
@@ -16,8 +17,10 @@ function App() {
   const [user,setUser] = useState({name:'',password:'',cart:[]})
   const [loggedIn,setLoggedIn] = useState(false)
 
-  const addToCart = (item) =>{
-    setUser({...user,cart:[...user.cart,item]})
+  const addToCart = (item,quantity) =>{
+    const newArr = new Array(parseInt(quantity)).fill(item)
+    console.log(newArr)
+    setUser({...user,cart: user.cart.concat(newArr)})
   }
 
   useEffect(()=>{
@@ -43,7 +46,6 @@ function App() {
     setResults(products.filter(p=>p.title.toLowerCase().includes(query.toLowerCase())))
   },[query,products])
 
-  console.log(loggedIn)
 
   return (
     <main>
@@ -55,12 +57,13 @@ function App() {
         <Nav className="mx-3 justify-content-around" style={{width:"275px"}}>
           {loggedIn ?
             <Navbar.Text>Hello, <i>{user.name}</i></Navbar.Text> :
-            null
+            <Nav.Link href="/login">Log In</Nav.Link>
           }
           <Nav.Link href='/products'>Products</Nav.Link>
           <Nav.Link href="/cart">Cart{user.cart.length > 0 ? `(${user.cart.length})` : null }</Nav.Link>
         </Nav>
       </Navbar>
+
       <Switch>
         <Route exact path='/'>
           <Redirect to="/products" />
@@ -74,10 +77,15 @@ function App() {
           <Cart cart={user.cart} />
         </Route>
 
+        <Route path="/checkout">
+          <Checkout setUser={setUser}/>
+        </Route>
+
         <Route path='/login' >
           {loggedIn ? <Redirect to="/products"/> : <Login setUser={setUser} />}
         </Route>
       </Switch>
+
     </main>
   );
 }
