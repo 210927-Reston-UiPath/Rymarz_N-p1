@@ -1,7 +1,11 @@
 handling logins
-
+    redirect when not logged in
 cart
     adding products to cart
+    adjusting quantity
+
+searchForm
+    submitting search
     
 purchasing
     

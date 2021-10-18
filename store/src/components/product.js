@@ -12,7 +12,7 @@ export default function product({product, addToCart}){
                 </Card.Body>
                 <Card.Text as='div' className="d-flex w-100 justify-content-evenly" >
                     <Card.Text style={{fontSize:'19px', fontWeight:500}}>${product.price.toFixed(2)}</Card.Text>
-                    <Button variant='outline-dark' style={{height:'40px'}} onPress={() => addToCart(product)}>Add To Cart</Button>
+                    <Button variant='outline-dark' style={{height:'40px'}} onClick={() => addToCart(product)}>Add To Cart</Button>
                 </Card.Text>
                 
             </Card>

@@ -14,6 +14,7 @@ function App() {
   const [results,setResults] = useState(products)
   const [query,setQuery] = useState('')
   const [user,setUser] = useState({name:'',password:'',cart:[]})
+  const [loggedIn,setLoggedIn] = useState(false)
 
   const addToCart = (item) =>{
     setUser({...user,cart:[...user.cart,item]})
@@ -29,9 +30,8 @@ function App() {
   useEffect(()=>{
     const info = JSON.stringify(user)
     sessionStorage.setItem('user',info)
-  },[user.cart])
-
-  const loggedIn = () => user.name.length > 0
+    if(user.name.length > 2) setLoggedIn(true)
+  },[user])
 
   useEffect(()=>{
     fetch('https://fakestoreapi.com/products')
@@ -43,6 +43,8 @@ function App() {
     setResults(products.filter(p=>p.title.toLowerCase().includes(query.toLowerCase())))
   },[query,products])
 
+  console.log(loggedIn)
+
   return (
     <main>
       <Navbar bg='dark' variant='dark' className="p-2 pb-2">
@@ -50,9 +52,9 @@ function App() {
         <Container fluid className='w-75'>
           <SearchProductsForm query={query} setQuery={setQuery}/>
         </Container>
-        <Nav className="mx-3 justify-content-between" style={{width:"275px"}}>
-          {loggedIn() ?
-            <Navbar.Text>{`Hello, ${user.name}`}</Navbar.Text> :
+        <Nav className="mx-3 justify-content-around" style={{width:"275px"}}>
+          {loggedIn ?
+            <Navbar.Text>Hello, <i>{user.name}</i></Navbar.Text> :
             null
           }
           <Nav.Link href='/products'>Products</Nav.Link>
@@ -60,16 +62,20 @@ function App() {
         </Nav>
       </Navbar>
       <Switch>
+        <Route exact path='/'>
+          <Redirect to="/products" />
+        </Route>
+
         <Route path="/products">
           <Products products={results} addToCart={addToCart} />
         </Route>
 
         <Route path="/cart" >
-          <Cart/>
+          <Cart cart={user.cart} />
         </Route>
 
         <Route path='/login' >
-          <Login setUser={setUser} />
+          {loggedIn ? <Redirect to="/products"/> : <Login setUser={setUser} />}
         </Route>
       </Switch>
     </main>
