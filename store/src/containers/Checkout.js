@@ -6,7 +6,7 @@ import Col from 'react-bootstrap/Col'
 export default function Checkout({setUser}){
     const makeOrder = () =>{
         setUser(prevUser =>{
-            return {...prevUser, cart:[]}
+            return {...prevUser, cart:[],ordered:true}
         })
         window.location.href="/products"
     }

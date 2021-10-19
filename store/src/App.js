@@ -9,6 +9,7 @@ import { Route, Switch,Redirect } from 'react-router-dom';
 import {useState, useEffect} from 'react'
 import SearchProductsForm from './components/searchProductsForm';
 import Checkout from './containers/Checkout'
+import Alert from 'react-bootstrap/Alert'
 
 function App() {
   const [products,setProducts] = useState([])
@@ -18,6 +19,7 @@ function App() {
   const [loggedIn,setLoggedIn] = useState(false)
 
   const addToCart = (item,quantity) =>{
+    user.ordered = false
     const newArr = new Array(parseInt(quantity)).fill(item)
     console.log(newArr)
     setUser({...user,cart: user.cart.concat(newArr)})
@@ -46,7 +48,6 @@ function App() {
     setResults(products.filter(p=>p.title.toLowerCase().includes(query.toLowerCase())))
   },[query,products])
 
-
   return (
     <main>
       <Navbar bg='dark' variant='dark' className="p-2 pb-2">
@@ -63,6 +64,10 @@ function App() {
           <Nav.Link href="/cart">Cart{user.cart.length > 0 ? `(${user.cart.length})` : null }</Nav.Link>
         </Nav>
       </Navbar>
+
+      <Alert show={user.ordered} variant='success' className='text-center m-2'>
+        <Alert.Heading>Order Successful</Alert.Heading>
+      </Alert>
 
       <Switch>
         <Route exact path='/'>
