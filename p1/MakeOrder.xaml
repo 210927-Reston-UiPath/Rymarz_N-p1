@@ -1,4 +1,4 @@
-<Activity mc:Ignorable="sap sap2010" x:Class="MakeOrder" mva:VisualBasic.Settings="{x:Null}" sap:VirtualizedContainerService.HintSize="1220,2690" sap2010:WorkflowViewState.IdRef="MakeOrder_1" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:mva="clr-namespace:Microsoft.VisualBasic.Activities;assembly=System.Activities" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:sd="clr-namespace:System.Data;assembly=System.Data" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+<Activity mc:Ignorable="sap sap2010" x:Class="MakeOrder" mva:VisualBasic.Settings="{x:Null}" sap:VirtualizedContainerService.HintSize="1220,3680" sap2010:WorkflowViewState.IdRef="MakeOrder_1" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:mva="clr-namespace:Microsoft.VisualBasic.Activities;assembly=System.Activities" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:sd="clr-namespace:System.Data;assembly=System.Data" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
   <TextExpression.NamespacesForImplementation>
     <scg:List x:TypeArguments="x:String" Capacity="30">
       <x:String>System.Activities</x:String>
@@ -34,7 +34,7 @@
     </scg:List>
   </TextExpression.NamespacesForImplementation>
   <TextExpression.ReferencesForImplementation>
-    <scg:List x:TypeArguments="AssemblyReference" Capacity="19">
+    <scg:List x:TypeArguments="AssemblyReference" Capacity="38">
       <AssemblyReference>System.Activities</AssemblyReference>
       <AssemblyReference>Microsoft.VisualBasic</AssemblyReference>
       <AssemblyReference>mscorlib</AssemblyReference>
@@ -54,9 +54,17 @@
       <AssemblyReference>UiPath.Database</AssemblyReference>
       <AssemblyReference>UiPath.Database.Activities</AssemblyReference>
       <AssemblyReference>UiPath.UIAutomationNext</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities.Design</AssemblyReference>
+      <AssemblyReference>System.ValueTuple</AssemblyReference>
+      <AssemblyReference>System.Memory</AssemblyReference>
+      <AssemblyReference>UiPath.Excel</AssemblyReference>
+      <AssemblyReference>UiPath.Mail</AssemblyReference>
+      <AssemblyReference>Microsoft.Bcl.AsyncInterfaces</AssemblyReference>
+      <AssemblyReference>UiPath.OCR.Activities.Design</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationCore</AssemblyReference>
     </scg:List>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="MakeOrder" sap:VirtualizedContainerService.HintSize="618,2585" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence DisplayName="MakeOrder" sap:VirtualizedContainerService.HintSize="939,3575" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="ui:DatabaseConnection" Name="db" />
       <Variable x:TypeArguments="sd:DataTable" Name="ShoppingList" />
@@ -65,24 +73,26 @@
       <Variable x:TypeArguments="sd:DataTable" Name="ClientShoppingListPega" />
       <Variable x:TypeArguments="sd:DataTable" Name="ClientShoppingListStore" />
       <Variable x:TypeArguments="x:String" Name="StoreTotal" />
+      <Variable x:TypeArguments="ui:Browser" Name="StoreBrowser" />
+      <Variable x:TypeArguments="ui:Browser" Name="PegaBrowser" />
     </Sequence.Variables>
     <sap:WorkflowViewStateService.ViewState>
       <scg:Dictionary x:TypeArguments="x:String, x:Object">
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <ui:DatabaseConnect DatabaseConnection="[db]" DisplayName="Connect" sap:VirtualizedContainerService.HintSize="576,59" sap2010:WorkflowViewState.IdRef="DatabaseConnect_1" ProviderName="System.Data.Odbc" ConnectionString="Dsn=PostgreSQL35W;uid=eqrufzio;pwd=7B4yiauW90e03udJz5mIjKQ1EOedKeL6" />
-    <ui:ExecuteQuery ContinueOnError="{x:Null}" TimeoutMS="{x:Null}" CommandType="Text" DataTable="[Clients]" DisplayName="Execute Query" ExistingDbConnection="[db]" sap:VirtualizedContainerService.HintSize="576,88" sap2010:WorkflowViewState.IdRef="ExecuteQuery_2" Sql="Select name from clients">
+    <ui:DatabaseConnect DatabaseConnection="[db]" DisplayName="Connect" sap:VirtualizedContainerService.HintSize="897,59" sap2010:WorkflowViewState.IdRef="DatabaseConnect_1" ProviderName="System.Data.Odbc" ConnectionString="Dsn=PostgreSQL35W;uid=eqrufzio;pwd=7B4yiauW90e03udJz5mIjKQ1EOedKeL6" />
+    <ui:ExecuteQuery ContinueOnError="{x:Null}" TimeoutMS="{x:Null}" CommandType="Text" DataTable="[Clients]" DisplayName="Execute Query" ExistingDbConnection="[db]" sap:VirtualizedContainerService.HintSize="897,88" sap2010:WorkflowViewState.IdRef="ExecuteQuery_2" Sql="Select name from clients">
       <ui:ExecuteQuery.Parameters>
         <scg:Dictionary x:TypeArguments="x:String, Argument" />
       </ui:ExecuteQuery.Parameters>
     </ui:ExecuteQuery>
-    <ui:ExecuteQuery ContinueOnError="{x:Null}" TimeoutMS="{x:Null}" CommandType="Text" DataTable="[ShoppingList]" DisplayName="Execute Query" ExistingDbConnection="[db]" sap:VirtualizedContainerService.HintSize="576,88" sap2010:WorkflowViewState.IdRef="ExecuteQuery_1" Sql="select clients.NAME as client, items.name as Item, clientItems.quantity, vendors.website from clients join clientItems &#xD;&#xA;on clientItems.clientId = id join items&#xD;&#xA;on clientItems.itemId = items.id join vendors &#xD;&#xA;on items.vendorId = vendors.id">
+    <ui:ExecuteQuery ContinueOnError="{x:Null}" TimeoutMS="{x:Null}" CommandType="Text" DataTable="[ShoppingList]" DisplayName="Execute Query" ExistingDbConnection="[db]" sap:VirtualizedContainerService.HintSize="897,88" sap2010:WorkflowViewState.IdRef="ExecuteQuery_1" Sql="select clients.NAME as client, items.name as Item, clientItems.quantity, vendors.website, clientItems.id&#xA; from clients join clientItems &#xA;on clientItems.clientId = clients.id join items&#xA;on clientItems.itemId = items.id join vendors &#xA;on items.vendorId = vendors.id">
       <ui:ExecuteQuery.Parameters>
         <scg:Dictionary x:TypeArguments="x:String, Argument" />
       </ui:ExecuteQuery.Parameters>
     </ui:ExecuteQuery>
-    <ui:OpenBrowser CommunicationMethod="{x:Null}" Hidden="{x:Null}" NewSession="{x:Null}" Private="{x:Null}" UiBrowser="{x:Null}" BrowserType="Chrome" DisplayName="Open Browser" sap:VirtualizedContainerService.HintSize="576,116" sap2010:WorkflowViewState.IdRef="OpenBrowser_2" Url="https://nathans-store.herokuapp.com/products">
+    <ui:OpenBrowser CommunicationMethod="{x:Null}" Hidden="{x:Null}" NewSession="{x:Null}" Private="{x:Null}" BrowserType="Chrome" DisplayName="Open Browser" sap:VirtualizedContainerService.HintSize="897,116" sap2010:WorkflowViewState.IdRef="OpenBrowser_2" UiBrowser="[StoreBrowser]" Url="https://nathans-store.herokuapp.com/products">
       <ui:OpenBrowser.Body>
         <ActivityAction x:TypeArguments="x:Object">
           <ActivityAction.Argument>
@@ -91,31 +101,69 @@
         </ActivityAction>
       </ui:OpenBrowser.Body>
     </ui:OpenBrowser>
-    <ui:ForEachRow CurrentIndex="{x:Null}" DataTable="[Clients]" DisplayName="For Each Row" sap:VirtualizedContainerService.HintSize="576,1982" sap2010:WorkflowViewState.IdRef="ForEachRow_2">
+    <ui:OpenBrowser CommunicationMethod="{x:Null}" Hidden="{x:Null}" Private="{x:Null}" BrowserType="Chrome" DisplayName="Open Browser" sap:VirtualizedContainerService.HintSize="897,647" sap2010:WorkflowViewState.IdRef="OpenBrowser_3" NewSession="True" UiBrowser="[PegaBrowser]" Url="https://training.openspan.com/login">
+      <ui:OpenBrowser.Body>
+        <ActivityAction x:TypeArguments="x:Object">
+          <ActivityAction.Argument>
+            <DelegateInArgument x:TypeArguments="x:Object" Name="ContextTarget" />
+          </ActivityAction.Argument>
+          <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="376,546" sap2010:WorkflowViewState.IdRef="Sequence_13">
+            <sap:WorkflowViewStateService.ViewState>
+              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+              </scg:Dictionary>
+            </sap:WorkflowViewStateService.ViewState>
+            <ui:TypeInto AlterIfDisabled="{x:Null}" ClickBeforeTyping="{x:Null}" DelayBefore="{x:Null}" DelayBetweenKeys="{x:Null}" DelayMS="{x:Null}" Activate="True" DisplayName="Type Into 'INPUT  user_name'" EmptyField="False" sap:VirtualizedContainerService.HintSize="334,134" sap2010:WorkflowViewState.IdRef="TypeInto_3" SendWindowMessages="False" SimulateType="True" Text="asdflsjdlfjdsl;ajfdlsajf">
+              <ui:TypeInto.Target>
+                <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="0c00e796-89cb-4094-a114-7ab9a4cd8270" InformativeScreenshot="6a9cfde16be728504113d451912fdac9" Selector="&lt;webctrl tag='INPUT' type='text' /&gt;" WaitForReady="COMPLETE">
+                  <ui:Target.TimeoutMS>
+                    <InArgument x:TypeArguments="x:Int32" />
+                  </ui:Target.TimeoutMS>
+                </ui:Target>
+              </ui:TypeInto.Target>
+            </ui:TypeInto>
+            <ui:TypeInto AlterIfDisabled="{x:Null}" ClickBeforeTyping="{x:Null}" DelayBefore="{x:Null}" DelayBetweenKeys="{x:Null}" DelayMS="{x:Null}" Activate="True" DisplayName="Type Into 'INPUT  user_pass'" EmptyField="False" sap:VirtualizedContainerService.HintSize="334,134" sap2010:WorkflowViewState.IdRef="TypeInto_4" SendWindowMessages="False" SimulateType="True" Text="jfkdsl;jfdlksjfdlk;sajfldksaj;f">
+              <ui:TypeInto.Target>
+                <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="2c343c17-f360-4e70-8e07-0493323f9deb" InformativeScreenshot="c4becb4942c3a97d0c7585ef239af733" Selector="&lt;webctrl tag='INPUT' type='password' /&gt;" WaitForReady="COMPLETE">
+                  <ui:Target.TimeoutMS>
+                    <InArgument x:TypeArguments="x:Int32" />
+                  </ui:Target.TimeoutMS>
+                </ui:Target>
+              </ui:TypeInto.Target>
+            </ui:TypeInto>
+            <ui:Click AlterIfDisabled="{x:Null}" DelayBefore="{x:Null}" DelayMS="{x:Null}" ClickType="CLICK_SINGLE" DisplayName="Click 'INPUT  login_button'" sap:VirtualizedContainerService.HintSize="334,106" sap2010:WorkflowViewState.IdRef="Click_2" KeyModifiers="None" MouseButton="BTN_LEFT" SendWindowMessages="False" SimulateClick="True">
+              <ui:Click.CursorPosition>
+                <ui:CursorPosition OffsetX="44" OffsetY="13" Position="TopLeft" />
+              </ui:Click.CursorPosition>
+              <ui:Click.Target>
+                <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="786f5ddc-a0f1-413e-a871-47b561730eba" InformativeScreenshot="1f7e176af4618cb6373e8b9791670fa3" Selector="&lt;webctrl tag='INPUT' type='submit' /&gt;" WaitForReady="COMPLETE">
+                  <ui:Target.TimeoutMS>
+                    <InArgument x:TypeArguments="x:Int32" />
+                  </ui:Target.TimeoutMS>
+                </ui:Target>
+              </ui:Click.Target>
+            </ui:Click>
+          </Sequence>
+        </ActivityAction>
+      </ui:OpenBrowser.Body>
+    </ui:OpenBrowser>
+    <ui:ForEachRow CurrentIndex="{x:Null}" DataTable="[Clients]" DisplayName="For Each Row" sap:VirtualizedContainerService.HintSize="897,2285" sap2010:WorkflowViewState.IdRef="ForEachRow_2">
       <ui:ForEachRow.Body>
         <ActivityAction x:TypeArguments="sd:DataRow">
           <ActivityAction.Argument>
             <DelegateInArgument x:TypeArguments="sd:DataRow" Name="row" />
           </ActivityAction.Argument>
-          <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="526,1834" sap2010:WorkflowViewState.IdRef="Sequence_3">
+          <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="847,2137" sap2010:WorkflowViewState.IdRef="Sequence_3">
             <Sequence.Variables>
-              <Variable x:TypeArguments="x:Boolean" Name="OrderedFromPega">
-                <Variable.Default>
-                  <Literal x:TypeArguments="x:Boolean" />
-                </Variable.Default>
-              </Variable>
-              <Variable x:TypeArguments="x:Boolean" Name="OrderedFromStore">
-                <Variable.Default>
-                  <Literal x:TypeArguments="x:Boolean" />
-                </Variable.Default>
-              </Variable>
+              <Variable x:TypeArguments="x:Boolean" Default="False" Name="OrderedFromPega" />
+              <Variable x:TypeArguments="x:Boolean" Default="False" Name="OrderedFromStore" />
             </Sequence.Variables>
             <sap:WorkflowViewStateService.ViewState>
               <scg:Dictionary x:TypeArguments="x:String, x:Object">
                 <x:Boolean x:Key="IsExpanded">True</x:Boolean>
               </scg:Dictionary>
             </sap:WorkflowViewStateService.ViewState>
-            <ui:FilterDataTable DataTable="[ShoppingList]" DisplayName="Filter Data Table" FilterRowsMode="Keep" sap:VirtualizedContainerService.HintSize="484,59" sap2010:WorkflowViewState.IdRef="FilterDataTable_1" OutputDataTable="[ClientShoppingList]" SelectColumnsMode="Keep">
+            <ui:FilterDataTable DataTable="[ShoppingList]" DisplayName="Filter Data Table" FilterRowsMode="Keep" sap:VirtualizedContainerService.HintSize="805,59" sap2010:WorkflowViewState.IdRef="FilterDataTable_1" OutputDataTable="[ClientShoppingList]" SelectColumnsMode="Keep">
               <ui:FilterDataTable.Filters>
                 <scg:List x:TypeArguments="ui:FilterOperationArgument" Capacity="4">
                   <ui:FilterOperationArgument BooleanOperator="And" Operator="EQ">
@@ -134,7 +182,7 @@
                 </scg:List>
               </ui:FilterDataTable.SelectColumns>
             </ui:FilterDataTable>
-            <ui:FilterDataTable DataTable="[ClientShoppingList]" DisplayName="Filter Data Table" FilterRowsMode="Keep" sap:VirtualizedContainerService.HintSize="484,59" sap2010:WorkflowViewState.IdRef="FilterDataTable_2" OutputDataTable="[ClientShoppingListStore]" SelectColumnsMode="Keep">
+            <ui:FilterDataTable DataTable="[ClientShoppingList]" DisplayName="Filter Data Table" FilterRowsMode="Keep" sap:VirtualizedContainerService.HintSize="805,59" sap2010:WorkflowViewState.IdRef="FilterDataTable_2" OutputDataTable="[ClientShoppingListStore]" SelectColumnsMode="Keep">
               <ui:FilterDataTable.Filters>
                 <scg:List x:TypeArguments="ui:FilterOperationArgument" Capacity="4">
                   <ui:FilterOperationArgument BooleanOperator="And" Operator="CONTAINS">
@@ -153,7 +201,7 @@
                 </scg:List>
               </ui:FilterDataTable.SelectColumns>
             </ui:FilterDataTable>
-            <ui:FilterDataTable DataTable="[ClientShoppingList]" DisplayName="Filter Data Table" FilterRowsMode="Remove" sap:VirtualizedContainerService.HintSize="484,59" sap2010:WorkflowViewState.IdRef="FilterDataTable_3" OutputDataTable="[ClientShoppingListPega]" SelectColumnsMode="Keep">
+            <ui:FilterDataTable DataTable="[ClientShoppingList]" DisplayName="Filter Data Table" FilterRowsMode="Remove" sap:VirtualizedContainerService.HintSize="805,59" sap2010:WorkflowViewState.IdRef="FilterDataTable_3" OutputDataTable="[ClientShoppingListPega]" SelectColumnsMode="Keep">
               <ui:FilterDataTable.Filters>
                 <scg:List x:TypeArguments="ui:FilterOperationArgument" Capacity="4">
                   <ui:FilterOperationArgument BooleanOperator="And" Operator="EQ">
@@ -172,47 +220,69 @@
                 </scg:List>
               </ui:FilterDataTable.SelectColumns>
             </ui:FilterDataTable>
-            <ui:ForEachRow CurrentIndex="{x:Null}" DataTable="[ClientShoppingListStore]" DisplayName="For Each Row" sap:VirtualizedContainerService.HintSize="484,352" sap2010:WorkflowViewState.IdRef="ForEachRow_6">
+            <ui:ForEachRow CurrentIndex="{x:Null}" DataTable="[ClientShoppingListStore]" DisplayName="For Each Row" sap:VirtualizedContainerService.HintSize="805,628" sap2010:WorkflowViewState.IdRef="ForEachRow_6">
               <ui:ForEachRow.Body>
                 <ActivityAction x:TypeArguments="sd:DataRow">
                   <ActivityAction.Argument>
                     <DelegateInArgument x:TypeArguments="sd:DataRow" Name="row" />
                   </ActivityAction.Argument>
-                  <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="376,204" sap2010:WorkflowViewState.IdRef="Sequence_8">
+                  <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="755,480" sap2010:WorkflowViewState.IdRef="Sequence_8">
+                    <Sequence.Variables>
+                      <Variable x:TypeArguments="x:Double" Name="Price" />
+                    </Sequence.Variables>
                     <sap:WorkflowViewStateService.ViewState>
                       <scg:Dictionary x:TypeArguments="x:String, x:Object">
                         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                       </scg:Dictionary>
                     </sap:WorkflowViewStateService.ViewState>
-                    <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Invoke AddToCartFromStore workflow" sap:VirtualizedContainerService.HintSize="334,112" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_5" UnSafe="False" WorkflowFileName="AddToCartFromStore.xaml">
+                    <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Invoke AddToCartFromStore workflow" sap:VirtualizedContainerService.HintSize="713,112" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_5" UnSafe="False" WorkflowFileName="AddToCartFromStore.xaml">
                       <ui:InvokeWorkflowFile.Arguments>
                         <InArgument x:TypeArguments="x:String" x:Key="Item">[cstr(row("Item"))]</InArgument>
                         <InArgument x:TypeArguments="x:Int32" x:Key="Quantity">[cint(row("Quantity"))]</InArgument>
+                        <InArgument x:TypeArguments="ui:Browser" x:Key="Browser">[StoreBrowser]</InArgument>
+                        <OutArgument x:TypeArguments="x:Double" x:Key="price">[Price]</OutArgument>
                       </ui:InvokeWorkflowFile.Arguments>
                     </ui:InvokeWorkflowFile>
+                    <If Condition="[Price &gt; -1]" sap:VirtualizedContainerService.HintSize="713,236" sap2010:WorkflowViewState.IdRef="If_4">
+                      <If.Then>
+                        <ui:ExecuteNonQuery AffectedRecords="{x:Null}" ContinueOnError="{x:Null}" TimeoutMS="{x:Null}" CommandType="Text" DisplayName="Execute Non Query" ExistingDbConnection="[db]" sap:VirtualizedContainerService.HintSize="334,88" sap2010:WorkflowViewState.IdRef="ExecuteNonQuery_1" Sql="[&quot;Insert into expenses(orderId,subtotal,orderDate) values(&quot; + cstr(row(&quot;id&quot;)) + &quot;,&quot; + cstr(price * cint(row(&quot;quantity&quot;))) + &quot;,'&quot; + Date.Today.toString() + &quot;')&quot;]">
+                          <ui:ExecuteNonQuery.Parameters>
+                            <scg:Dictionary x:TypeArguments="x:String, Argument" />
+                          </ui:ExecuteNonQuery.Parameters>
+                        </ui:ExecuteNonQuery>
+                      </If.Then>
+                      <If.Else>
+                        <ui:ExecuteNonQuery AffectedRecords="{x:Null}" ContinueOnError="{x:Null}" TimeoutMS="{x:Null}" CommandType="Text" DisplayName="Execute Non Query" ExistingDbConnection="[db]" sap:VirtualizedContainerService.HintSize="334,88" sap2010:WorkflowViewState.IdRef="ExecuteNonQuery_3" Sql="[&quot;insert into failedOrders(orderId,orderDate) values (&quot;+ CStr(row(&quot;id&quot;)) + &quot;,'&quot; + Date.today.toString() + &quot;')&quot;]">
+                          <ui:ExecuteNonQuery.Parameters>
+                            <scg:Dictionary x:TypeArguments="x:String, Argument" />
+                          </ui:ExecuteNonQuery.Parameters>
+                        </ui:ExecuteNonQuery>
+                      </If.Else>
+                    </If>
                   </Sequence>
                 </ActivityAction>
               </ui:ForEachRow.Body>
             </ui:ForEachRow>
-            <If Condition="[clientShoppingListStore.rows.Count &gt; 1]" sap:VirtualizedContainerService.HintSize="484,260" sap2010:WorkflowViewState.IdRef="If_2">
+            <If Condition="[clientShoppingListStore.rows.Count &gt; 1]" sap:VirtualizedContainerService.HintSize="805,260" sap2010:WorkflowViewState.IdRef="If_2">
               <If.Then>
                 <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Invoke CheckoutFromStore workflow" sap:VirtualizedContainerService.HintSize="334,112" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_9" UnSafe="False" WorkflowFileName="CheckoutFromStore.xaml">
                   <ui:InvokeWorkflowFile.Arguments>
-                    <OutArgument x:TypeArguments="x:String" x:Key="TotalPrice">
-                      <mva:VisualBasicReference x:TypeArguments="x:String" ExpressionText="StoreTotal" />
-                    </OutArgument>
+                    <OutArgument x:TypeArguments="x:String" x:Key="TotalPrice">[StoreTotal]</OutArgument>
+                    <InArgument x:TypeArguments="ui:Browser" x:Key="Browser">[StoreBrowser]</InArgument>
                   </ui:InvokeWorkflowFile.Arguments>
                 </ui:InvokeWorkflowFile>
               </If.Then>
             </If>
-            <WriteLine DisplayName="Write Line" sap:VirtualizedContainerService.HintSize="484,61" sap2010:WorkflowViewState.IdRef="WriteLine_5" Text="[StoreTotal]" />
-            <ui:ForEachRow CurrentIndex="{x:Null}" DataTable="[ClientShoppingListPega]" DisplayName="For Each Row" sap:VirtualizedContainerService.HintSize="484,352" sap2010:WorkflowViewState.IdRef="ForEachRow_7">
+            <ui:ForEachRow CurrentIndex="{x:Null}" DataTable="[ClientShoppingListPega]" DisplayName="For Each Row" sap:VirtualizedContainerService.HintSize="805,480" sap2010:WorkflowViewState.IdRef="ForEachRow_7">
               <ui:ForEachRow.Body>
                 <ActivityAction x:TypeArguments="sd:DataRow">
                   <ActivityAction.Argument>
                     <DelegateInArgument x:TypeArguments="sd:DataRow" Name="row" />
                   </ActivityAction.Argument>
-                  <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="376,204" sap2010:WorkflowViewState.IdRef="Sequence_9">
+                  <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="376,332" sap2010:WorkflowViewState.IdRef="Sequence_9">
+                    <Sequence.Variables>
+                      <Variable x:TypeArguments="x:Double" Name="price" />
+                    </Sequence.Variables>
                     <sap:WorkflowViewStateService.ViewState>
                       <scg:Dictionary x:TypeArguments="x:String, x:Object">
                         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -220,19 +290,22 @@
                     </sap:WorkflowViewStateService.ViewState>
                     <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Invoke AddToCartFromPega workflow" sap:VirtualizedContainerService.HintSize="334,112" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_7" UnSafe="False" WorkflowFileName="AddToCartFromPega.xaml">
                       <ui:InvokeWorkflowFile.Arguments>
-                        <InArgument x:TypeArguments="x:String" x:Key="item">
-                          <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="cstr(row(&quot;Item&quot;))" />
-                        </InArgument>
-                        <InArgument x:TypeArguments="x:Int32" x:Key="quantity">
-                          <mva:VisualBasicValue x:TypeArguments="x:Int32" ExpressionText="cint(row(&quot;quantity&quot;))" />
-                        </InArgument>
+                        <InArgument x:TypeArguments="x:String" x:Key="item">[cstr(row("Item"))]</InArgument>
+                        <InArgument x:TypeArguments="x:Int32" x:Key="quantity">[cint(row("quantity"))]</InArgument>
+                        <InArgument x:TypeArguments="ui:Browser" x:Key="Browser">[PegaBrowser]</InArgument>
+                        <OutArgument x:TypeArguments="x:Double" x:Key="price">[price]</OutArgument>
                       </ui:InvokeWorkflowFile.Arguments>
                     </ui:InvokeWorkflowFile>
+                    <ui:ExecuteNonQuery AffectedRecords="{x:Null}" ContinueOnError="{x:Null}" TimeoutMS="{x:Null}" CommandType="Text" DisplayName="Execute Non Query" ExistingDbConnection="[db]" sap:VirtualizedContainerService.HintSize="334,88" sap2010:WorkflowViewState.IdRef="ExecuteNonQuery_2" Sql="[&quot;Insert into expenses(orderId,subtotal,orderDate) values(&quot; + cstr(row(&quot;id&quot;)) + &quot;,&quot; + cstr(price * cint(row(&quot;quantity&quot;))) + &quot;,'&quot; + Date.Today.toString() + &quot;')&quot;]">
+                      <ui:ExecuteNonQuery.Parameters>
+                        <scg:Dictionary x:TypeArguments="x:String, Argument" />
+                      </ui:ExecuteNonQuery.Parameters>
+                    </ui:ExecuteNonQuery>
                   </Sequence>
                 </ActivityAction>
               </ui:ForEachRow.Body>
             </ui:ForEachRow>
-            <If Condition="[clientShoppingListPega.rows.count &gt; 1]" sap:VirtualizedContainerService.HintSize="484,260" sap2010:WorkflowViewState.IdRef="If_3">
+            <If Condition="[clientShoppingListPega.rows.count &gt; 1]" sap:VirtualizedContainerService.HintSize="805,260" sap2010:WorkflowViewState.IdRef="If_3">
               <If.Then>
                 <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Invoke CheckoutFromPega workflow" sap:VirtualizedContainerService.HintSize="334,112" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_8" UnSafe="False" WorkflowFileName="CheckoutFromPega.xaml">
                   <ui:InvokeWorkflowFile.Arguments>
