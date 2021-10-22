@@ -81,3 +81,5 @@ on clientItems.clientId = clients.Id
 where clientItems.itemId > 20
 group by client;
 
+select name from items
+

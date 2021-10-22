@@ -64,7 +64,7 @@
     <Sequence.Variables>
       <Variable x:TypeArguments="s:String[]" Name="Items">
         <Variable.Default>
-          <mva:VisualBasicValue x:TypeArguments="s:String[]" ExpressionText="{}{&quot;Louisiana Hot Spiced Okra&quot;,&quot;Guarana Fantastica&quot;, &quot;Aniseed Syrup&quot;,&quot;Grandma's Boysenberry Spread&quot;, &quot;Sirop d'erable&quot;, &quot;Steeleye Stout&quot;}" />
+          <mva:VisualBasicValue x:TypeArguments="s:String[]" ExpressionText="{}{&quot;Louisiana Hot Spiced Okra&quot;,&quot;Guarana Fantastica&quot;, &quot;Aniseed Syrup&quot;,&quot;Grandma's Boysenberry Spread&quot;, &quot;Sirop d'erable&quot;, &quot;Steeleye Stout&quot;,&quot;poop&quot;}" />
         </Variable.Default>
       </Variable>
       <Variable x:TypeArguments="ui:Browser" Name="browser" />
@@ -140,18 +140,10 @@
                     </sap:WorkflowViewStateService.ViewState>
                     <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Invoke AddToCartFromPega workflow" sap:VirtualizedContainerService.HintSize="334,112" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_1" UnSafe="False" WorkflowFileName="AddToCartFromPega.xaml">
                       <ui:InvokeWorkflowFile.Arguments>
-                        <InArgument x:TypeArguments="x:String" x:Key="item">
-                          <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="cstr(item)" />
-                        </InArgument>
-                        <InArgument x:TypeArguments="x:Int32" x:Key="quantity">
-                          <Literal x:TypeArguments="x:Int32" Value="7" />
-                        </InArgument>
-                        <InArgument x:TypeArguments="ui:Browser" x:Key="Browser">
-                          <mva:VisualBasicValue x:TypeArguments="ui:Browser" ExpressionText="browser" />
-                        </InArgument>
-                        <OutArgument x:TypeArguments="x:Double" x:Key="price">
-                          <mva:VisualBasicReference x:TypeArguments="x:Double" ExpressionText="price" />
-                        </OutArgument>
+                        <InArgument x:TypeArguments="x:String" x:Key="item">[cstr(item)]</InArgument>
+                        <InArgument x:TypeArguments="x:Int32" x:Key="quantity">7</InArgument>
+                        <InArgument x:TypeArguments="ui:Browser" x:Key="Browser">[browser]</InArgument>
+                        <OutArgument x:TypeArguments="x:Double" x:Key="price">[price]</OutArgument>
                       </ui:InvokeWorkflowFile.Arguments>
                     </ui:InvokeWorkflowFile>
                     <WriteLine DisplayName="Write Line" sap:VirtualizedContainerService.HintSize="334,61" sap2010:WorkflowViewState.IdRef="WriteLine_1" Text="[&quot;Order Price: &quot; + cstr(price*7)]" />
