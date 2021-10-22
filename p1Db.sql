@@ -41,9 +41,10 @@ select * from clientItems;
 select * from expenses;
 select * from failedOrders
 
-select clients.name as "Client",orderDate, clientItems.itemid from failedOrders join clientItems
+select clients.name as "Client",orderDate, items.name from failedOrders join clientItems
 on orderId = clientItems.id join clients
-on clientItems.clientId = clients.id
+on clientItems.clientId = clients.id join items
+on clientItems.itemId = items.id
 
 select clients.NAME as Client, sum(subtotal) as TotalPrice from expenses join clientitems
 on orderId = clientItems.id join clients
@@ -53,6 +54,12 @@ group by client
 select clients.name as client, subtotal from expenses join clientItems
 on orderId = clientItems.id join clients
 on clientItems.clientId = clients.id
+
+select clients.NAME as Client, sum(subtotal) as TotalPrice from expenses join clientitems
+on orderId = clientItems.id join clients
+on clientItems.clientId = clients.Id
+where clientItems.itemId > 20
+group by client
 
 
 drop table expenses;
@@ -66,5 +73,11 @@ drop table clients;
 select clients.NAME as client, items.name as Item, clientItems.quantity, vendors.website, clientItems.id from clients join clientItems 
 on clientItems.clientId = clients.id join items
 on clientItems.itemId = items.id join vendors 
-on items.vendorId = vendors.id
+on items.vendorId = vendors.id;
+
+select clients.NAME as Client, sum(subtotal) as TotalPrice from expenses join clientitems
+on orderId = clientItems.id join clients
+on clientItems.clientId = clients.Id
+where clientItems.itemId > 20
+group by client;
 

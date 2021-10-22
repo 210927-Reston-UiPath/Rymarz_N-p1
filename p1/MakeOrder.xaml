@@ -1,4 +1,4 @@
-<Activity mc:Ignorable="sap sap2010" x:Class="MakeOrder" mva:VisualBasic.Settings="{x:Null}" sap:VirtualizedContainerService.HintSize="1220,3680" sap2010:WorkflowViewState.IdRef="MakeOrder_1" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:mva="clr-namespace:Microsoft.VisualBasic.Activities;assembly=System.Activities" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:sd="clr-namespace:System.Data;assembly=System.Data" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+<Activity mc:Ignorable="sap sap2010" x:Class="MakeOrder" mva:VisualBasic.Settings="{x:Null}" sap:VirtualizedContainerService.HintSize="1220,3828" sap2010:WorkflowViewState.IdRef="MakeOrder_1" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:mva="clr-namespace:Microsoft.VisualBasic.Activities;assembly=System.Activities" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:sd="clr-namespace:System.Data;assembly=System.Data" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
   <TextExpression.NamespacesForImplementation>
     <scg:List x:TypeArguments="x:String" Capacity="30">
       <x:String>System.Activities</x:String>
@@ -64,7 +64,7 @@
       <AssemblyReference>UiPath.UIAutomationCore</AssemblyReference>
     </scg:List>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="MakeOrder" sap:VirtualizedContainerService.HintSize="939,3575" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence DisplayName="MakeOrder" sap:VirtualizedContainerService.HintSize="939,3723" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="ui:DatabaseConnection" Name="db" />
       <Variable x:TypeArguments="sd:DataTable" Name="ShoppingList" />
@@ -147,13 +147,13 @@
         </ActivityAction>
       </ui:OpenBrowser.Body>
     </ui:OpenBrowser>
-    <ui:ForEachRow CurrentIndex="{x:Null}" DataTable="[Clients]" DisplayName="For Each Row" sap:VirtualizedContainerService.HintSize="897,2285" sap2010:WorkflowViewState.IdRef="ForEachRow_2">
+    <ui:ForEachRow CurrentIndex="{x:Null}" DataTable="[Clients]" DisplayName="For Each Row" sap:VirtualizedContainerService.HintSize="897,2433" sap2010:WorkflowViewState.IdRef="ForEachRow_2">
       <ui:ForEachRow.Body>
         <ActivityAction x:TypeArguments="sd:DataRow">
           <ActivityAction.Argument>
             <DelegateInArgument x:TypeArguments="sd:DataRow" Name="row" />
           </ActivityAction.Argument>
-          <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="847,2137" sap2010:WorkflowViewState.IdRef="Sequence_3">
+          <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="847,2285" sap2010:WorkflowViewState.IdRef="Sequence_3">
             <Sequence.Variables>
               <Variable x:TypeArguments="x:Boolean" Default="False" Name="OrderedFromPega" />
               <Variable x:TypeArguments="x:Boolean" Default="False" Name="OrderedFromStore" />
@@ -273,13 +273,13 @@
                 </ui:InvokeWorkflowFile>
               </If.Then>
             </If>
-            <ui:ForEachRow CurrentIndex="{x:Null}" DataTable="[ClientShoppingListPega]" DisplayName="For Each Row" sap:VirtualizedContainerService.HintSize="805,480" sap2010:WorkflowViewState.IdRef="ForEachRow_7">
+            <ui:ForEachRow CurrentIndex="{x:Null}" DataTable="[ClientShoppingListPega]" DisplayName="For Each Row" sap:VirtualizedContainerService.HintSize="805,628" sap2010:WorkflowViewState.IdRef="ForEachRow_7">
               <ui:ForEachRow.Body>
                 <ActivityAction x:TypeArguments="sd:DataRow">
                   <ActivityAction.Argument>
                     <DelegateInArgument x:TypeArguments="sd:DataRow" Name="row" />
                   </ActivityAction.Argument>
-                  <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="376,332" sap2010:WorkflowViewState.IdRef="Sequence_9">
+                  <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="755,480" sap2010:WorkflowViewState.IdRef="Sequence_9">
                     <Sequence.Variables>
                       <Variable x:TypeArguments="x:Double" Name="price" />
                     </Sequence.Variables>
@@ -288,7 +288,7 @@
                         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                       </scg:Dictionary>
                     </sap:WorkflowViewStateService.ViewState>
-                    <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Invoke AddToCartFromPega workflow" sap:VirtualizedContainerService.HintSize="334,112" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_7" UnSafe="False" WorkflowFileName="AddToCartFromPega.xaml">
+                    <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Invoke AddToCartFromPega workflow" sap:VirtualizedContainerService.HintSize="713,112" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_7" UnSafe="False" WorkflowFileName="AddToCartFromPega.xaml">
                       <ui:InvokeWorkflowFile.Arguments>
                         <InArgument x:TypeArguments="x:String" x:Key="item">[cstr(row("Item"))]</InArgument>
                         <InArgument x:TypeArguments="x:Int32" x:Key="quantity">[cint(row("quantity"))]</InArgument>
@@ -296,11 +296,22 @@
                         <OutArgument x:TypeArguments="x:Double" x:Key="price">[price]</OutArgument>
                       </ui:InvokeWorkflowFile.Arguments>
                     </ui:InvokeWorkflowFile>
-                    <ui:ExecuteNonQuery AffectedRecords="{x:Null}" ContinueOnError="{x:Null}" TimeoutMS="{x:Null}" CommandType="Text" DisplayName="Execute Non Query" ExistingDbConnection="[db]" sap:VirtualizedContainerService.HintSize="334,88" sap2010:WorkflowViewState.IdRef="ExecuteNonQuery_2" Sql="[&quot;Insert into expenses(orderId,subtotal,orderDate) values(&quot; + cstr(row(&quot;id&quot;)) + &quot;,&quot; + cstr(price * cint(row(&quot;quantity&quot;))) + &quot;,'&quot; + Date.Today.toString() + &quot;')&quot;]">
-                      <ui:ExecuteNonQuery.Parameters>
-                        <scg:Dictionary x:TypeArguments="x:String, Argument" />
-                      </ui:ExecuteNonQuery.Parameters>
-                    </ui:ExecuteNonQuery>
+                    <If Condition="[price &gt; -1]" sap:VirtualizedContainerService.HintSize="713,236" sap2010:WorkflowViewState.IdRef="If_5">
+                      <If.Then>
+                        <ui:ExecuteNonQuery AffectedRecords="{x:Null}" ContinueOnError="{x:Null}" TimeoutMS="{x:Null}" CommandType="Text" DisplayName="Execute Non Query" ExistingDbConnection="[db]" sap:VirtualizedContainerService.HintSize="334,88" sap2010:WorkflowViewState.IdRef="ExecuteNonQuery_2" Sql="[&quot;Insert into expenses(orderId,subtotal,orderDate) values(&quot; + cstr(row(&quot;id&quot;)) + &quot;,&quot; + cstr(price * cint(row(&quot;quantity&quot;))) + &quot;,'&quot; + Date.Today.toString() + &quot;')&quot;]">
+                          <ui:ExecuteNonQuery.Parameters>
+                            <scg:Dictionary x:TypeArguments="x:String, Argument" />
+                          </ui:ExecuteNonQuery.Parameters>
+                        </ui:ExecuteNonQuery>
+                      </If.Then>
+                      <If.Else>
+                        <ui:ExecuteNonQuery AffectedRecords="{x:Null}" ContinueOnError="{x:Null}" TimeoutMS="{x:Null}" CommandType="Text" DisplayName="Execute Non Query" ExistingDbConnection="[db]" sap:VirtualizedContainerService.HintSize="334,88" sap2010:WorkflowViewState.IdRef="ExecuteNonQuery_4" Sql="[&quot;insert into failedOrders(orderId,orderDate) values (&quot;+ CStr(row(&quot;id&quot;)) + &quot;,'&quot; + Date.today.toString() + &quot;')&quot;]">
+                          <ui:ExecuteNonQuery.Parameters>
+                            <scg:Dictionary x:TypeArguments="x:String, Argument" />
+                          </ui:ExecuteNonQuery.Parameters>
+                        </ui:ExecuteNonQuery>
+                      </If.Else>
+                    </If>
                   </Sequence>
                 </ActivityAction>
               </ui:ForEachRow.Body>
@@ -309,7 +320,9 @@
               <If.Then>
                 <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Invoke CheckoutFromPega workflow" sap:VirtualizedContainerService.HintSize="334,112" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_8" UnSafe="False" WorkflowFileName="CheckoutFromPega.xaml">
                   <ui:InvokeWorkflowFile.Arguments>
-                    <scg:Dictionary x:TypeArguments="x:String, Argument" />
+                    <InArgument x:TypeArguments="ui:Browser" x:Key="Browser">
+                      <mva:VisualBasicValue x:TypeArguments="ui:Browser" ExpressionText="PegaBrowser" />
+                    </InArgument>
                   </ui:InvokeWorkflowFile.Arguments>
                 </ui:InvokeWorkflowFile>
               </If.Then>
