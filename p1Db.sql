@@ -46,10 +46,12 @@ on orderId = clientItems.id join clients
 on clientItems.clientId = clients.id join items
 on clientItems.itemId = items.id
 
-select clients.NAME as Client, sum(subtotal) as TotalPrice from expenses join clientitems
+select clients.NAME as Client, items.name as item, quantity, subtotal, orderDate from expenses join clientitems
 on orderId = clientItems.id join clients
-on clientItems.clientId = clients.Id
-group by client
+on clientItems.clientId = clients.Id join items
+on clientItems.itemId = items.id
+where clientId = 1 and orderDate = '2021-10-22'
+
 
 select clients.name as client, subtotal from expenses join clientItems
 on orderId = clientItems.id join clients
@@ -81,5 +83,7 @@ on clientItems.clientId = clients.Id
 where clientItems.itemId > 20
 group by client;
 
-select name from items
+select max(id) from clients 
+
+Select distinct(orderDate) from expenses join clientItems on expenses.orderId = clientItems.id join clients on clientItems.clientId = clients.id where clients.Name = 'John'
 
