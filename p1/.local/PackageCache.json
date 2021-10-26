@@ -2,6 +2,19 @@
   "Packages": [
     {
       "Package": {
+        "Id": "UiPath.Database.Activities",
+        "Version": "1.4.0"
+      },
+      "Assemblies": [
+        "C:\\Users\\nryma\\.nuget\\packages\\uipath.database.activities/1.4.0\\lib/net452/Microsoft.Data.ConnectionUI.Dialog.dll",
+        "C:\\Users\\nryma\\.nuget\\packages\\uipath.database.activities/1.4.0\\lib/net452/UiPath.Database.Activities.Design.dll",
+        "C:\\Users\\nryma\\.nuget\\packages\\uipath.database.activities/1.4.0\\lib/net452/UiPath.Database.Activities.dll",
+        "C:\\Users\\nryma\\.nuget\\packages\\uipath.database.activities/1.4.0\\lib/net452/UiPath.Database.dll"
+      ],
+      "Path": "C:\\Users\\nryma\\.nuget\\packages\\uipath.database.activities\\1.4.0"
+    },
+    {
+      "Package": {
         "Id": "UiPath.Excel.Activities",
         "Version": "2.9.5"
       },
@@ -20,35 +33,6 @@
         "C:\\Users\\nryma\\.nuget\\packages\\uipath.excel.activities/2.9.5\\lib/net461/UiPath.Excel.dll"
       ],
       "Path": "C:\\Users\\nryma\\.nuget\\packages\\uipath.excel.activities\\2.9.5"
-    },
-    {
-      "Package": {
-        "Id": "UiPath.Mail.Activities",
-        "Version": "1.9.5"
-      },
-      "Assemblies": [
-        "C:\\Users\\nryma\\.nuget\\packages\\bouncycastle/1.8.5\\lib/BouncyCastle.Crypto.dll",
-        "C:\\Users\\nryma\\.nuget\\packages\\google.apis/1.43.0\\lib/net45/Google.Apis.PlatformServices.dll",
-        "C:\\Users\\nryma\\.nuget\\packages\\google.apis/1.43.0\\lib/net45/Google.Apis.dll",
-        "C:\\Users\\nryma\\.nuget\\packages\\google.apis.auth/1.43.0\\lib/net45/Google.Apis.Auth.PlatformServices.dll",
-        "C:\\Users\\nryma\\.nuget\\packages\\google.apis.auth/1.43.0\\lib/net45/Google.Apis.Auth.dll",
-        "C:\\Users\\nryma\\.nuget\\packages\\google.apis.calendar.v3/1.43.0.1872\\lib/net45/Google.Apis.Calendar.v3.dll",
-        "C:\\Users\\nryma\\.nuget\\packages\\google.apis.core/1.43.0\\lib/net45/Google.Apis.Core.dll",
-        "C:\\Users\\nryma\\.nuget\\packages\\google.apis.gmail.v1/1.43.0.1859\\lib/net45/Google.Apis.Gmail.v1.dll",
-        "C:\\Users\\nryma\\.nuget\\packages\\google.apis.peopleservice.v1/1.43.0.1876\\lib/net45/Google.Apis.PeopleService.v1.dll",
-        "C:\\Users\\nryma\\.nuget\\packages\\interop.domino.dll/1.0.0\\lib/Interop.Domino.dll",
-        "C:\\Users\\nryma\\.nuget\\packages\\microsoft.exchange.webservices/2.2.0\\lib/40/Microsoft.Exchange.WebServices.Auth.dll",
-        "C:\\Users\\nryma\\.nuget\\packages\\microsoft.exchange.webservices/2.2.0\\lib/40/Microsoft.Exchange.WebServices.dll",
-        "C:\\Users\\nryma\\.nuget\\packages\\microsoft.identity.client/4.14.0\\lib/net45/Microsoft.Identity.Client.dll",
-        "C:\\Users\\nryma\\.nuget\\packages\\newtonsoft.json/11.0.2\\lib/net45/Newtonsoft.Json.dll",
-        "C:\\Users\\nryma\\.nuget\\packages\\system.valuetuple/4.5.0\\lib/net461/System.ValueTuple.dll",
-        "C:\\Users\\nryma\\.nuget\\packages\\uipath.mail.activities/1.9.5\\lib/net461/MailKit.dll",
-        "C:\\Users\\nryma\\.nuget\\packages\\uipath.mail.activities/1.9.5\\lib/net461/MimeKit.dll",
-        "C:\\Users\\nryma\\.nuget\\packages\\uipath.mail.activities/1.9.5\\lib/net461/UiPath.Mail.Activities.Design.dll",
-        "C:\\Users\\nryma\\.nuget\\packages\\uipath.mail.activities/1.9.5\\lib/net461/UiPath.Mail.Activities.dll",
-        "C:\\Users\\nryma\\.nuget\\packages\\uipath.mail.activities/1.9.5\\lib/net461/UiPath.Mail.dll"
-      ],
-      "Path": "C:\\Users\\nryma\\.nuget\\packages\\uipath.mail.activities\\1.9.5"
     },
     {
       "Package": {
@@ -169,16 +153,34 @@
     },
     {
       "Package": {
-        "Id": "UiPath.Database.Activities",
-        "Version": "1.4.0"
+        "Id": "UiPath.Mail.Activities",
+        "Version": "1.10.5"
       },
       "Assemblies": [
-        "C:\\Users\\nryma\\.nuget\\packages\\uipath.database.activities/1.4.0\\lib/net452/Microsoft.Data.ConnectionUI.Dialog.dll",
-        "C:\\Users\\nryma\\.nuget\\packages\\uipath.database.activities/1.4.0\\lib/net452/UiPath.Database.Activities.Design.dll",
-        "C:\\Users\\nryma\\.nuget\\packages\\uipath.database.activities/1.4.0\\lib/net452/UiPath.Database.Activities.dll",
-        "C:\\Users\\nryma\\.nuget\\packages\\uipath.database.activities/1.4.0\\lib/net452/UiPath.Database.dll"
+        "C:\\Users\\nryma\\.nuget\\packages\\google.apis/1.43.0\\lib/net45/Google.Apis.PlatformServices.dll",
+        "C:\\Users\\nryma\\.nuget\\packages\\google.apis/1.43.0\\lib/net45/Google.Apis.dll",
+        "C:\\Users\\nryma\\.nuget\\packages\\google.apis.auth/1.43.0\\lib/net45/Google.Apis.Auth.PlatformServices.dll",
+        "C:\\Users\\nryma\\.nuget\\packages\\google.apis.auth/1.43.0\\lib/net45/Google.Apis.Auth.dll",
+        "C:\\Users\\nryma\\.nuget\\packages\\google.apis.calendar.v3/1.43.0.1872\\lib/net45/Google.Apis.Calendar.v3.dll",
+        "C:\\Users\\nryma\\.nuget\\packages\\google.apis.core/1.43.0\\lib/net45/Google.Apis.Core.dll",
+        "C:\\Users\\nryma\\.nuget\\packages\\google.apis.gmail.v1/1.43.0.1859\\lib/net45/Google.Apis.Gmail.v1.dll",
+        "C:\\Users\\nryma\\.nuget\\packages\\google.apis.peopleservice.v1/1.43.0.1876\\lib/net45/Google.Apis.PeopleService.v1.dll",
+        "C:\\Users\\nryma\\.nuget\\packages\\mailkit/2.10.0\\lib/net46/MailKit.dll",
+        "C:\\Users\\nryma\\.nuget\\packages\\microsoft.exchange.webservices/2.2.0\\lib/40/Microsoft.Exchange.WebServices.Auth.dll",
+        "C:\\Users\\nryma\\.nuget\\packages\\microsoft.exchange.webservices/2.2.0\\lib/40/Microsoft.Exchange.WebServices.dll",
+        "C:\\Users\\nryma\\.nuget\\packages\\microsoft.extensions.filesystemglobbing/5.0.0\\lib/net461/Microsoft.Extensions.FileSystemGlobbing.dll",
+        "C:\\Users\\nryma\\.nuget\\packages\\microsoft.identity.client/4.14.0\\lib/net45/Microsoft.Identity.Client.dll",
+        "C:\\Users\\nryma\\.nuget\\packages\\mimekit/2.10.0\\lib/net46/MimeKit.dll",
+        "C:\\Users\\nryma\\.nuget\\packages\\newtonsoft.json/11.0.2\\lib/net45/Newtonsoft.Json.dll",
+        "C:\\Users\\nryma\\.nuget\\packages\\portable.bouncycastle/1.8.8\\lib/net40/BouncyCastle.Crypto.dll",
+        "C:\\Users\\nryma\\.nuget\\packages\\system.buffers/4.5.1\\lib/net461/System.Buffers.dll",
+        "C:\\Users\\nryma\\.nuget\\packages\\system.valuetuple/4.5.0\\lib/net461/System.ValueTuple.dll",
+        "C:\\Users\\nryma\\.nuget\\packages\\uipath.mail.activities/1.10.5\\lib/net461/UiPath.Mail.Activities.Design.dll",
+        "C:\\Users\\nryma\\.nuget\\packages\\uipath.mail.activities/1.10.5\\lib/net461/UiPath.Mail.Activities.dll",
+        "C:\\Users\\nryma\\.nuget\\packages\\uipath.mail.activities/1.10.5\\lib/net461/UiPath.Mail.Activities.Package.dll",
+        "C:\\Users\\nryma\\.nuget\\packages\\uipath.mail.activities/1.10.5\\lib/net461/UiPath.Mail.dll"
       ],
-      "Path": "C:\\Users\\nryma\\.nuget\\packages\\uipath.database.activities\\1.4.0"
+      "Path": "C:\\Users\\nryma\\.nuget\\packages\\uipath.mail.activities\\1.10.5"
     }
   ],
   "Conflicts": [],
@@ -215,11 +217,6 @@
     "AvalonEdit": {
       "Id": "AvalonEdit",
       "Version": "5.0.3",
-      "Dependencies": []
-    },
-    "BouncyCastle": {
-      "Id": "BouncyCastle",
-      "Version": "1.8.5",
       "Dependencies": []
     },
     "ClosedXML": {
@@ -332,10 +329,15 @@
       "Version": "2.4.2",
       "Dependencies": []
     },
-    "interop.domino.dll": {
-      "Id": "interop.domino.dll",
-      "Version": "1.0.0",
-      "Dependencies": []
+    "MailKit": {
+      "Id": "MailKit",
+      "Version": "2.10.0",
+      "Dependencies": [
+        {
+          "Item1": "MimeKit",
+          "Item2": "[2.10.0, )"
+        }
+      ]
     },
     "Microsoft.AspNet.SignalR.Client": {
       "Id": "Microsoft.AspNet.SignalR.Client",
@@ -547,6 +549,11 @@
       "Version": "3.1.6",
       "Dependencies": []
     },
+    "Microsoft.Extensions.FileSystemGlobbing": {
+      "Id": "Microsoft.Extensions.FileSystemGlobbing",
+      "Version": "5.0.0",
+      "Dependencies": []
+    },
     "Microsoft.Extensions.Logging": {
       "Id": "Microsoft.Extensions.Logging",
       "Version": "3.1.6",
@@ -626,6 +633,24 @@
       "Version": "7.10.6071",
       "Dependencies": []
     },
+    "MimeKit": {
+      "Id": "MimeKit",
+      "Version": "2.10.0",
+      "Dependencies": [
+        {
+          "Item1": "System.Data.DataSetExtensions",
+          "Item2": "[4.5.0, )"
+        },
+        {
+          "Item1": "System.Buffers",
+          "Item2": "[4.5.1, )"
+        },
+        {
+          "Item1": "Portable.BouncyCastle",
+          "Item2": "[1.8.8, )"
+        }
+      ]
+    },
     "Newtonsoft.Json": {
       "Id": "Newtonsoft.Json",
       "Version": "11.0.2",
@@ -646,6 +671,11 @@
         }
       ]
     },
+    "Portable.BouncyCastle": {
+      "Id": "Portable.BouncyCastle",
+      "Version": "1.8.8",
+      "Dependencies": []
+    },
     "SharpZipLib": {
       "Id": "SharpZipLib",
       "Version": "1.2.0",
@@ -664,6 +694,11 @@
     "System.ComponentModel.Annotations": {
       "Id": "System.ComponentModel.Annotations",
       "Version": "4.7.0",
+      "Dependencies": []
+    },
+    "System.Data.DataSetExtensions": {
+      "Id": "System.Data.DataSetExtensions",
+      "Version": "4.5.0",
       "Dependencies": []
     },
     "System.IO.Abstractions": {
@@ -837,36 +872,8 @@
     },
     "UiPath.Mail.Activities": {
       "Id": "UiPath.Mail.Activities",
-      "Version": "1.9.5",
+      "Version": "1.10.5",
       "Dependencies": [
-        {
-          "Item1": "System.ValueTuple",
-          "Item2": "[4.5.0, )"
-        },
-        {
-          "Item1": "Google.Apis",
-          "Item2": "[1.43.0, )"
-        },
-        {
-          "Item1": "Microsoft.Exchange.WebServices",
-          "Item2": "[2.2.0, )"
-        },
-        {
-          "Item1": "Microsoft.Identity.Client",
-          "Item2": "[4.14.0, )"
-        },
-        {
-          "Item1": "Newtonsoft.Json",
-          "Item2": "[11.0.1, )"
-        },
-        {
-          "Item1": "BouncyCastle",
-          "Item2": "[1.8.5, )"
-        },
-        {
-          "Item1": "Google.Apis.Auth",
-          "Item2": "[1.43.0, )"
-        },
         {
           "Item1": "Google.Apis.Calendar.v3",
           "Item2": "[1.43.0.1872, )"
@@ -880,8 +887,28 @@
           "Item2": "[1.43.0.1876, )"
         },
         {
-          "Item1": "interop.domino.dll",
-          "Item2": "[1.0.0, )"
+          "Item1": "MailKit",
+          "Item2": "[2.10.0, )"
+        },
+        {
+          "Item1": "Microsoft.Exchange.WebServices",
+          "Item2": "[2.2.0, )"
+        },
+        {
+          "Item1": "Microsoft.Extensions.FileSystemGlobbing",
+          "Item2": "[5.0.0, )"
+        },
+        {
+          "Item1": "Microsoft.Identity.Client",
+          "Item2": "[4.14.0, )"
+        },
+        {
+          "Item1": "Newtonsoft.Json",
+          "Item2": "[11.0.1, )"
+        },
+        {
+          "Item1": "System.ValueTuple",
+          "Item2": "[4.5.0, )"
         }
       ]
     },
@@ -1114,16 +1141,6 @@
     },
     {
       "Package": {
-        "Id": "BouncyCastle",
-        "Version": "1.8.5"
-      },
-      "Assemblies": [
-        "C:\\Users\\nryma\\.nuget\\packages\\bouncycastle\\1.8.5\\lib\\BouncyCastle.Crypto.dll"
-      ],
-      "Path": "C:\\Users\\nryma\\.nuget\\packages\\bouncycastle\\1.8.5"
-    },
-    {
-      "Package": {
         "Id": "ClosedXML",
         "Version": "0.87.1"
       },
@@ -1240,13 +1257,13 @@
     },
     {
       "Package": {
-        "Id": "interop.domino.dll",
-        "Version": "1.0.0"
+        "Id": "MailKit",
+        "Version": "2.10.0"
       },
       "Assemblies": [
-        "C:\\Users\\nryma\\.nuget\\packages\\interop.domino.dll\\1.0.0\\lib\\Interop.Domino.dll"
+        "C:\\Users\\nryma\\.nuget\\packages\\mailkit\\2.10.0\\lib\\net46\\MailKit.dll"
       ],
-      "Path": "C:\\Users\\nryma\\.nuget\\packages\\interop.domino.dll\\1.0.0"
+      "Path": "C:\\Users\\nryma\\.nuget\\packages\\mailkit\\2.10.0"
     },
     {
       "Package": {
@@ -1411,6 +1428,16 @@
     },
     {
       "Package": {
+        "Id": "Microsoft.Extensions.FileSystemGlobbing",
+        "Version": "5.0.0"
+      },
+      "Assemblies": [
+        "C:\\Users\\nryma\\.nuget\\packages\\microsoft.extensions.filesystemglobbing\\5.0.0\\lib\\net461\\Microsoft.Extensions.FileSystemGlobbing.dll"
+      ],
+      "Path": "C:\\Users\\nryma\\.nuget\\packages\\microsoft.extensions.filesystemglobbing\\5.0.0"
+    },
+    {
+      "Package": {
         "Id": "Microsoft.Extensions.Logging",
         "Version": "3.1.6"
       },
@@ -1481,6 +1508,16 @@
     },
     {
       "Package": {
+        "Id": "MimeKit",
+        "Version": "2.10.0"
+      },
+      "Assemblies": [
+        "C:\\Users\\nryma\\.nuget\\packages\\mimekit\\2.10.0\\lib\\net46\\MimeKit.dll"
+      ],
+      "Path": "C:\\Users\\nryma\\.nuget\\packages\\mimekit\\2.10.0"
+    },
+    {
+      "Package": {
         "Id": "Newtonsoft.Json",
         "Version": "11.0.2"
       },
@@ -1511,6 +1548,16 @@
         "C:\\Users\\nryma\\.nuget\\packages\\npoi\\2.4.1\\lib\\net45\\NPOI.dll"
       ],
       "Path": "C:\\Users\\nryma\\.nuget\\packages\\npoi\\2.4.1"
+    },
+    {
+      "Package": {
+        "Id": "Portable.BouncyCastle",
+        "Version": "1.8.8"
+      },
+      "Assemblies": [
+        "C:\\Users\\nryma\\.nuget\\packages\\portable.bouncycastle\\1.8.8\\lib\\net40\\BouncyCastle.Crypto.dll"
+      ],
+      "Path": "C:\\Users\\nryma\\.nuget\\packages\\portable.bouncycastle\\1.8.8"
     },
     {
       "Package": {
@@ -1551,6 +1598,16 @@
         "C:\\Users\\nryma\\.nuget\\packages\\system.componentmodel.annotations\\4.7.0\\lib\\net461\\System.ComponentModel.Annotations.dll"
       ],
       "Path": "C:\\Users\\nryma\\.nuget\\packages\\system.componentmodel.annotations\\4.7.0"
+    },
+    {
+      "Package": {
+        "Id": "System.Data.DataSetExtensions",
+        "Version": "4.5.0"
+      },
+      "Assemblies": [
+        "C:\\Users\\nryma\\.nuget\\packages\\system.data.datasetextensions\\4.5.0\\lib\\net45\\_._"
+      ],
+      "Path": "C:\\Users\\nryma\\.nuget\\packages\\system.data.datasetextensions\\4.5.0"
     },
     {
       "Package": {
@@ -1700,16 +1757,15 @@
     {
       "Package": {
         "Id": "UiPath.Mail.Activities",
-        "Version": "1.9.5"
+        "Version": "1.10.5"
       },
       "Assemblies": [
-        "C:\\Users\\nryma\\.nuget\\packages\\uipath.mail.activities\\1.9.5\\lib\\net461\\MailKit.dll",
-        "C:\\Users\\nryma\\.nuget\\packages\\uipath.mail.activities\\1.9.5\\lib\\net461\\MimeKit.dll",
-        "C:\\Users\\nryma\\.nuget\\packages\\uipath.mail.activities\\1.9.5\\lib\\net461\\UiPath.Mail.Activities.Design.dll",
-        "C:\\Users\\nryma\\.nuget\\packages\\uipath.mail.activities\\1.9.5\\lib\\net461\\UiPath.Mail.Activities.dll",
-        "C:\\Users\\nryma\\.nuget\\packages\\uipath.mail.activities\\1.9.5\\lib\\net461\\UiPath.Mail.dll"
+        "C:\\Users\\nryma\\.nuget\\packages\\uipath.mail.activities\\1.10.5\\lib\\net461\\UiPath.Mail.Activities.Design.dll",
+        "C:\\Users\\nryma\\.nuget\\packages\\uipath.mail.activities\\1.10.5\\lib\\net461\\UiPath.Mail.Activities.dll",
+        "C:\\Users\\nryma\\.nuget\\packages\\uipath.mail.activities\\1.10.5\\lib\\net461\\UiPath.Mail.Activities.Package.dll",
+        "C:\\Users\\nryma\\.nuget\\packages\\uipath.mail.activities\\1.10.5\\lib\\net461\\UiPath.Mail.dll"
       ],
-      "Path": "C:\\Users\\nryma\\.nuget\\packages\\uipath.mail.activities\\1.9.5"
+      "Path": "C:\\Users\\nryma\\.nuget\\packages\\uipath.mail.activities\\1.10.5"
     },
     {
       "Package": {

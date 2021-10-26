@@ -50,7 +50,13 @@ select clients.NAME as Client, items.name as item, quantity, subtotal, orderDate
 on orderId = clientItems.id join clients
 on clientItems.clientId = clients.Id join items
 on clientItems.itemId = items.id
-where clientId = 1 and orderDate = '2021-10-22'
+where clientId = 1 and orderDate = '2021-10-23'
+
+select items.name from failedOrders join clientItems on
+failedOrders.orderId = clientItems.id join items on 
+items.id = clientItems.itemId join clients
+on clientItems.clientId = clients.id 
+where clients.name = 'John' and failedOrders.orderDate = '10-26-2021'
 
 
 select clients.name as client, subtotal from expenses join clientItems
@@ -60,7 +66,7 @@ on clientItems.clientId = clients.id
 select clients.NAME as Client, sum(subtotal) as TotalPrice from expenses join clientitems
 on orderId = clientItems.id join clients
 on clientItems.clientId = clients.Id
-where clientItems.itemId > 20
+where clientId = 1 and orderDate = '2021-10-23'
 group by client
 
 
